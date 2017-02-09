@@ -28,7 +28,7 @@ function buySell ($rootScope, $timeout, $q, $state, $uibModal, $uibModalStack, W
       _buySellMyWallet = new MyWalletBuySell(MyWallet.wallet, $rootScope.buySellDebug);
       if (_buySellMyWallet.exchanges) { // Absent if 2nd password set
         _buySellMyWallet.exchanges.sfox.api.production = $rootScope.sfoxUseStaging === null ? $rootScope.isProduction : !Boolean($rootScope.sfoxUseStaging);
-
+        _buySellMyWallet.exchanges.coinify.api.testnet = $rootScope.network === 'testnet';
         // This can safely be done asynchrnously, because:
         // * the buy-sell tab won't appear until Options is loaded
         // * no information is fetched from partner API's until:
